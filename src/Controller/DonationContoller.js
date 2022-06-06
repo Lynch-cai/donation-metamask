@@ -5,7 +5,6 @@ const DonationController = () => {
   // Get donation value
 
   const changeDonationValue = (donationValue) => {
-    console.log(donationValue)
     updateSendValue(donationValue)
   }
 
