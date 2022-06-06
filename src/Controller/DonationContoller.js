@@ -3,11 +3,10 @@ import DonationView from '../View/DonationView'
 
 const DonationController = () => {
   // Get donation value
-  const [donationValue, setDonationValue] = useState(0)
 
-  const changeDonationValue = (value) => {
-    setDonationValue(value)
-    updateSendValue()
+  const changeDonationValue = (donationValue) => {
+    console.log(donationValue)
+    updateSendValue(donationValue)
   }
 
 
@@ -26,11 +25,11 @@ const DonationController = () => {
   }, [])
 
   // Updating send value
-  const updateSendValue = () => {
+  const updateSendValue = (donationValue) => {
     setTransactionParameters({
       from: transactionParameters.from,
       to: transactionParameters.to,
-      value: ((donationValue/ethValue)*10000000000000000000).toString(16),
+      value: ((donationValue/ethValue)*1000000000000000000).toString(16),
       gas: transactionParameters.gas,
     })
   }
@@ -44,7 +43,7 @@ const DonationController = () => {
     from: '',
     to: '0xE4Fd5d85252F5b72562bf7df180212c80109112b',
     value: '0x2386F26FC10000',
-    gas: '0x2710',
+    gas: '0x5208',
   })
 
   // Declaring accounts
